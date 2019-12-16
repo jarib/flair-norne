@@ -5,5 +5,6 @@ OUT="vectors"
 
 wget "$URL" -O "$OUT.zip"
 unzip -d "$OUT" "$OUT.zip"
+rm "$OUT".zip
 
-python bin/convert_word2vec.py vectors/model.txt vectors/model.w2v
+python bin/convert_word2vec.py "$OUT/model.txt" "$OUT/model.w2v"

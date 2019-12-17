@@ -54,10 +54,13 @@ print('training')
 trainer.train('./models/flair-norne',
               learning_rate=0.1,
               mini_batch_size=32,
-              max_epochs=150)
+              max_epochs=150,
+              embeddings_storage_mode='gpu',
+)
 
 
 # 8. plot weight traces (optional)
 from flair.visual.training_curves import Plotter
 plotter = Plotter()
 plotter.plot_weights('./models/flair-norne/weights.txt')
+plotter.plot_learning_rate('./models/flair-norne/loss.tsv')
